@@ -13,8 +13,6 @@ const mockGeolocation = {
       },
     });
   },
-  watchPosition: jest.fn(),
-  clearWatch: jest.fn(),
 };
 
 global.navigator = Object.defineProperty(global.navigator, "geolocation", {

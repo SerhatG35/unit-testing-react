@@ -1,12 +1,14 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { weather } from "api";
 import { mockedGetWeatherDataResponse } from "api/mockData/weather";
+
 import App from "App";
 
 describe("App tests", () => {
   const setup = () => render(<App />);
 
-  it("loads data successfully", async () => {
+  it("renders data successfully", async () => {
     setup();
 
     await waitFor(() => {
@@ -15,16 +17,17 @@ describe("App tests", () => {
       );
     });
   });
-  it("should expand the card", async () => {
+
+  it("should expand the weather card", async () => {
     setup();
 
-    fireEvent.click(await screen.findByTestId("expand-card-button"));
+    userEvent.click(await screen.findByTestId("expand-card-button"));
 
     expect(await screen.findByTestId("text-humidity")).toHaveTextContent(
       mockedGetWeatherDataResponse.main.humidity.toString()
     );
   });
-  it("should throw error", async () => {
+  it("should throw error while fetching weather data", async () => {
     jest.spyOn(weather, "getWeatherData").mockImplementation(() => {
       throw new Error();
     });

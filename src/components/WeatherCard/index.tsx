@@ -53,7 +53,7 @@ const WeatherCard: FC<WeatherCardProps> = ({ weatherData, reFetch }) => {
           flexDir="column"
           boxShadow="2xl"
           rounded="8px"
-          bg="gainsboro"
+          bg="whiteAlpha.400"
           p="1rem"
           fontSize="xl"
           width="300px"
@@ -76,7 +76,7 @@ const WeatherCard: FC<WeatherCardProps> = ({ weatherData, reFetch }) => {
                   justifyContent="space-between"
                   mt={index === 0 ? "2rem" : "0px"}
                   key={name}
-                  borderColor="gray.300"
+                  borderColor="gray.400"
                 >
                   <Center>
                     <Icon />
@@ -90,7 +90,7 @@ const WeatherCard: FC<WeatherCardProps> = ({ weatherData, reFetch }) => {
             })}
           </Collapse>
 
-          <Center w="100%" justifyContent="space-between">
+          <Center w="100%" mt="1rem" justifyContent="space-between">
             <IconButton
               onClick={reFetch}
               aria-label="refetch-data"

@@ -21,3 +21,4 @@ describe("Weather api tests", () => {
     expect(response).toEqual(mockedGetWeatherDataResponse);
   });
 });
+// 
